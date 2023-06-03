@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { getImagesUnsplashAPI } from '@/common/hooks';
+import { getImagesUnsplashAPI } from '@/common/api';
 import ImageCard from './ImageCard';
 import { ImageType, SearchInputType } from '@/common/type';
 

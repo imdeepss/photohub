@@ -1,19 +1,19 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { getImagesUnsplashAPI } from '@/common/hooks';
+import { getImagePixelAPI, getImagesUnsplashAPI } from '@/common/api';
 import ImageCard from './ImageCard';
 import { ImageType, SearchInputType } from '@/common/type';
 
-const ImageGallery = () => {
+const ImageGalleryBackup = () => {
   const [imageDetails, setImageDetails] = useState<ImageType[] | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const searchInput: SearchInputType = { search: '' };
-        const details = await getImagesUnsplashAPI(searchInput);
-        setImageDetails(details);
+        const details = await getImagePixelAPI();
+        console.log(details)
+        // setImageDetails(details);
       } catch (error) {
         console.error('An error occurred while fetching image details:', error);
         setImageDetails(null);
@@ -54,4 +54,4 @@ const ImageGallery = () => {
   );
 };
 
-export default ImageGallery;
+export default ImageGalleryBackup;

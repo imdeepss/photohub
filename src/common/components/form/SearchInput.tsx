@@ -3,7 +3,7 @@
 import React from "react";
 import { SearchIcon } from "../icons";
 import { useForm } from "react-hook-form";
-import { getImagesUnsplashAPI } from "@/common/hooks";
+import { getImagesUnsplashAPI } from "@/common/api";
 import { SearchInputType } from "@/common/type";
 
 

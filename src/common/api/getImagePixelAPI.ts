@@ -12,6 +12,7 @@ const getImagePixelAPI = async () => {
     });
     if (response.ok) {
       const data = await response.json();
+      // return data;
       // Process the data here
       console.log(data);
     } else {
