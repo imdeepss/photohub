@@ -5,9 +5,17 @@ const client = createClient(
   "T8sKIBAGwDJsZKgfSSW8SM7eeCOdcPN3jcP2cdzTQwD72JKjM0dxuvCe"
 );
 
-const getImagePixelAPI = async (): Promise<PexelsImageType[] | null> => {
+const getImagePixelAPI = async (
+  query?: string
+): Promise<PexelsImageType[] | null> => {
   try {
-    const response = await client.photos.curated({ per_page: 100 });
+    let response;
+
+    if (query) {
+      response = await client.photos.search({ query, per_page: 100 });
+    } else {
+      response = await client.photos.curated({ per_page: 100 });
+    }
 
     if (!response || "error" in response) {
       throw new Error("Something went wrong");

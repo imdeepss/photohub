@@ -1,10 +1,9 @@
 "use client";
 
-import React from "react";
-import { SearchIcon } from "../icons";
-import { useForm } from "react-hook-form";
-import { getImagesUnsplashAPI } from "@/common/api";
+import { getImagePixelAPI } from "@/common/api";
 import { SearchInputType } from "@/common/type";
+import { useForm } from "react-hook-form";
+import { SearchIcon } from "../icons";
 
 
 
@@ -14,8 +13,8 @@ const SearchInput = () => {
       mode: "onChange",
     });
   const onChange = async (data: SearchInputType) => {
-    const searchResult = await getImagesUnsplashAPI(data);
-    console.log(searchResult);
+    const searchResult = await getImagePixelAPI(data?.search);
+    // console.log(searchResult);
   };
 
   return (
