@@ -5,7 +5,9 @@ const nextConfig = {
         domains: [
             "plus.unsplash.com",
             "images.unsplash.com",
-            "flowbite.s3.amazonaws.com"
+            "flowbite.s3.amazonaws.com",
+            "images.pexels.com",
+            "pexels.com"
         ],
     },
 }

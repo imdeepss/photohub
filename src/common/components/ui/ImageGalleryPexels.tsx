@@ -1,25 +1,24 @@
 "use client";
 
+import { getImagePixelAPI } from '@/common/api';
+import { PexelsImageType } from '@/common/type';
 import { useEffect, useState } from 'react';
-import { getImagePixelAPI, getImagesUnsplashAPI } from '@/common/api';
 import ImageCard from './ImageCard';
-import { ImageType, SearchInputType } from '@/common/type';
 
-const ImageGalleryBackup = () => {
-  const [imageDetails, setImageDetails] = useState<ImageType[] | null>(null);
+const ImageGalleryPexels = () => {
+  const [imageDetails, setImageDetails] = useState<PexelsImageType[] | null>(null);
+
+  const fetchData = async () => {
+    try {
+      const details = await getImagePixelAPI();
+      setImageDetails(details);
+    } catch (error) {
+      console.error('An error occurred while fetching image details:', error);
+      setImageDetails(null);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const details = await getImagePixelAPI();
-        console.log(details)
-        // setImageDetails(details);
-      } catch (error) {
-        console.error('An error occurred while fetching image details:', error);
-        setImageDetails(null);
-      }
-    };
-
     fetchData();
   }, []);
 
@@ -43,8 +42,8 @@ const ImageGalleryBackup = () => {
             {column.map((image, imageIndex) => (
               <ImageCard
                 key={imageIndex}
-                src={image?.urls?.regular}
-                alt={image?.alt_description ?? 'images'}
+                src={image?.src}
+                alt={image?.alt}
               />
             ))}
           </div>
@@ -54,4 +53,4 @@ const ImageGalleryBackup = () => {
   );
 };
 
-export default ImageGalleryBackup;
+export default ImageGalleryPexels;

@@ -1,12 +1,12 @@
-import { ImageGallery, ImageGalleryBackup } from "@/common/components/ui";
+import { ImageGallery, ImageGalleryPexels, } from "@/common/components/ui";
 import { Analytics } from '@vercel/analytics/react';
 
 const Home = () => {
   return (
     <>
       <Analytics />
-      <ImageGallery />
-      {/* <ImageGalleryBackup /> */}
+      {/* <ImageGallery /> */}
+      <ImageGalleryPexels />
     </>
   )
 }

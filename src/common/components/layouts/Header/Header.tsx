@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SearchInput } from "../../form";
+import { SearchInput, ToggleButton } from "../../form";
 import { PhotoHubLogo } from "../../icons";
 
 const Header = () => {
@@ -8,7 +8,10 @@ const Header = () => {
       <Link href="/">
         <PhotoHubLogo />
       </Link>
-      <SearchInput />
+      <div className="p-4 rounded-xl flex items-center gap-5">
+        <SearchInput />
+        <ToggleButton />
+      </div>
     </header>
   );
 };

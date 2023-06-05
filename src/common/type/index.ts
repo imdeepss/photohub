@@ -9,3 +9,9 @@ export type ImageType = {
   };
   alt_description: string;
 };
+
+export type PexelsImageType = {
+  id: number;
+  src: string;
+  alt: string;
+};

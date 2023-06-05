@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useRef } from "react";
-import { DownloadButton } from "../form";
+import { DownloadButton, OpenButton } from "../form";
 
 type ImageType = {
   src: string;
@@ -23,7 +23,10 @@ const ImageCard = ({ src, alt }: ImageType) => {
           ref={imageURLRef}
         />
         {src &&
-          <DownloadButton src={imageURLRef} alt={alt} />
+          <div className="">
+            <OpenButton src={src} alt={alt} />
+            <DownloadButton src={imageURLRef} alt={alt} />
+          </div>
         }
       </div>
     </div>
