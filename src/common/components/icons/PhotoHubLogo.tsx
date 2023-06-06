@@ -1,11 +1,20 @@
 import React from 'react'
+import { useTheme } from 'next-themes';
 
 const PhotoHubLogo = () => {
+    const { theme } = useTheme();
+
+
+    const logoColor = theme === 'dark' ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)';
+
+
     return (
         <svg xmlns="http://www.w3.org/2000/svg"
             width={200}
             height={60}
-            viewBox="0 0 200 60">
+            viewBox="0 0 200 60"
+            fill={logoColor}
+        >
             <rect className="cls-2" x="121.5" y="12.75" width="77.17" height="34.5" rx=".67" ry=".67" fill="#9e9e9e" />
             <g>
                 <path className="cls-1" d="M147.74,18.78v22.21h-5.41v-9.14h-8.42v9.14h-5.41V18.78h5.41v8.7h8.42v-8.7h5.41Z" />

@@ -10,9 +10,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "grey": { DEFAULT: "#f6f6f6" }
+        "grey": { DEFAULT: "#f6f6f6" },
       }
     },
   },
   plugins: [],
+  darkMode: 'class',
 }

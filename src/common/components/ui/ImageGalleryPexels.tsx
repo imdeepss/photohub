@@ -35,7 +35,7 @@ const ImageGalleryPexels = () => {
   );
 
   return (
-    <section className="px-8 py-10 md:px-20">
+    <section className="px-8 py-10 md:px-20 bg-white dark:bg-black">
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
         {columnData.map((column, columnIndex) => (
           <div className="flex flex-col gap-4" key={columnIndex}>
