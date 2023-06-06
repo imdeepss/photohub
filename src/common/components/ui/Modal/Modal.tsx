@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactNode } from "react";
 import ReactDOM from "react-dom";
 import { CloseIcon } from "../../icons";
