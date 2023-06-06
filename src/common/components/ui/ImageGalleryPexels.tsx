@@ -4,6 +4,7 @@ import { getImagePixelAPI } from '@/common/api';
 import { PexelsImageType } from '@/common/type';
 import { useEffect, useState } from 'react';
 import ImageCard from './ImageCard';
+import ImageSkeleton from './ImageSkeleton';
 
 const ImageGalleryPexels = () => {
   const [imageDetails, setImageDetails] = useState<PexelsImageType[] | null>(null);
@@ -23,7 +24,7 @@ const ImageGalleryPexels = () => {
   }, []);
 
   if (!imageDetails) {
-    return <></>;
+    return <ImageSkeleton />;
   }
 
   const columns = 4;
