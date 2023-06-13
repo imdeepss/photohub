@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { DownloadIcon } from "../icons";
+import React, { useState } from "react";
+import { DownloadIcon, LoaderIcon } from "../icons";
 
 type DownloadButtonProps = {
   src: React.RefObject<HTMLImageElement>;
@@ -9,24 +9,30 @@ type DownloadButtonProps = {
 };
 
 const DownloadButton: React.FC<DownloadButtonProps> = ({ src, alt }) => {
+
+  const [loader, setLoader] = useState(false);
   const handleDownload = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    imageSrc: string,
+    src: string,
     alt: string
   ) => {
     e.preventDefault();
-    const response = await fetch(src.current?.src as string);
+    setLoader(true)
+    if (alt === "") {
+      alt = "image"
+    }
+    const response = await fetch(src);
     const blob = await response.blob();
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    // Set the Content-Disposition header to force download
     link.setAttribute("download", `${alt}.png`);
     link.setAttribute("Content-Disposition", "attachment; filename=image.png");
 
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    setLoader(false)
   };
 
   return (
@@ -35,7 +41,7 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ src, alt }) => {
       className="absolute bottom-2 right-2 rounded-md bg-grey p-1 shadow-inner"
       onClick={(e) => handleDownload(e, src.current?.src as string, alt)}
     >
-      <DownloadIcon />
+      {loader ? <LoaderIcon /> : <DownloadIcon />}
     </button>
   );
 };
