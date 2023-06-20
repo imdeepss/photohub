@@ -2,10 +2,10 @@ import React from 'react'
 import { useTheme } from 'next-themes';
 
 const PhotoHubLogo = () => {
-    const { theme } = useTheme();
+    // const { theme } = useTheme();
 
 
-    const logoColor = theme === 'dark' ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)';
+    // const logoColor = theme === 'dark' ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)';
 
 
     return (
@@ -13,7 +13,7 @@ const PhotoHubLogo = () => {
             width={200}
             height={60}
             viewBox="0 0 200 60"
-            fill={logoColor}
+        // fill={logoColor}
         >
             <rect className="cls-2" x="121.5" y="12.75" width="77.17" height="34.5" rx=".67" ry=".67" fill="#9e9e9e" />
             <g>

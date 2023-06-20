@@ -1,6 +1,3 @@
-"use client";
-
-
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Footer, Header } from '@/common/components/layouts'
