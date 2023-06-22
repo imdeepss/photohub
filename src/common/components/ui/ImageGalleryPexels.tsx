@@ -11,7 +11,9 @@ const ImageGalleryPexels = () => {
 
   const fetchData = async () => {
     try {
-      const details = await getImagePixelAPI();
+      // const details = await getImagePixelAPI();
+      const searchValue = "cup" || "";
+      const details = await getImagePixelAPI(searchValue);
       setImageDetails(details);
     } catch (error) {
       console.error('An error occurred while fetching image details:', error);

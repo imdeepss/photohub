@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { Footer, Header } from '@/common/components/layouts'
-import { ThemeProvider } from 'next-themes';
+import { CommonLayout } from '@/common/components/layouts';
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,11 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div id="modalOverlay" className="z-50" />
-        {/* <ThemeProvider attribute='class'> */}
-        <Header />
-        {children}
-        <Footer />
-        {/* </ThemeProvider> */}
+        <CommonLayout >
+          {children}
+        </CommonLayout>
       </body>
     </html>
   )
