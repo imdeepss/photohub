@@ -1,14 +1,16 @@
 "use client";
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes';
 
 const PhotoHubLogo = () => {
     const { theme } = useTheme();
+    const [logoColor, setLogoColor] = useState('');
 
-
-    const logoColor = theme === 'dark' ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)';
-
+    useEffect(() => {
+        const updatedLogoColor = theme === 'dark' ? '#ffffff' : '#000000';
+        setLogoColor(updatedLogoColor);
+    }, [theme]);
 
     return (
         <svg xmlns="http://www.w3.org/2000/svg"

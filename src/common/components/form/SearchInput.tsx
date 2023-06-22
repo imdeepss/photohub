@@ -28,7 +28,7 @@ const SearchInput = () => {
         <SearchIcon />
         <input
           type="search"
-          className="bg-transparent px-2 outline-none md:px-3 w-full"
+          className="bg-transparent px-2 outline-none md:px-3 w-full text-black font-semibold"
           placeholder="search..."
           {...register("search")}
         />

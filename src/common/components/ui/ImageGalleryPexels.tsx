@@ -12,7 +12,7 @@ const ImageGalleryPexels = () => {
   const fetchData = async () => {
     try {
       // const details = await getImagePixelAPI();
-      const searchValue = "cup" || "";
+      const searchValue = "";
       const details = await getImagePixelAPI(searchValue);
       setImageDetails(details);
     } catch (error) {
