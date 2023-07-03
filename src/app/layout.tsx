@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { CommonLayout } from '@/common/components/layouts';
+import { InputValueProvider } from '@/context/InputValueContext';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,9 +22,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div id="modalOverlay" className="z-50" />
-        <CommonLayout >
-          {children}
-        </CommonLayout>
+        <InputValueProvider>
+          <CommonLayout >
+            {children}
+          </CommonLayout>
+        </InputValueProvider>
       </body>
     </html>
   )

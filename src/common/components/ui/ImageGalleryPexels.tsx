@@ -2,18 +2,18 @@
 
 import { getImagePixelAPI } from '@/common/api';
 import { PexelsImageType } from '@/common/type';
-import { useEffect, useState } from 'react';
+import { InputValueContext } from "@/context/InputValueContext";
+import { useContext, useEffect, useState } from "react";
 import ImageCard from './ImageCard';
-import ImageSkeleton from './ImageSkeleton';
+import NoImageFound from "./NoImageFound";
 
 const ImageGalleryPexels = () => {
   const [imageDetails, setImageDetails] = useState<PexelsImageType[] | null>(null);
 
-  const fetchData = async () => {
+  const { inputValue } = useContext(InputValueContext);
+  const fetchData = async (inputValue: any) => {
     try {
-      // const details = await getImagePixelAPI();
-      const searchValue = "";
-      const details = await getImagePixelAPI(searchValue);
+      const details = await getImagePixelAPI(inputValue);
       setImageDetails(details);
     } catch (error) {
       console.error('An error occurred while fetching image details:', error);
@@ -21,12 +21,13 @@ const ImageGalleryPexels = () => {
     }
   };
 
+
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData(inputValue);
+  }, [inputValue]);
 
   if (!imageDetails) {
-    return <ImageSkeleton />;
+    return <NoImageFound />;
   }
 
   const columns = 4;
